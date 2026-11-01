@@ -1,0 +1,98 @@
+*, *::before, *::after { box-sizing: border-box; }
+* {
+  scrollbar-color: color-mix(in srgb, var(--text-muted) 38%, transparent) transparent;
+  scrollbar-width: thin;
+}
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  min-height: 30px;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--text-muted) 38%, transparent);
+  background-clip: padding-box;
+  transition: background-color var(--transition-fast);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 62%, transparent);
+}
+html { min-width: 320px; font-size: 15px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text-main);
+  background: var(--bg-body);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+body.desktop-app { min-width: 900px; min-height: 100vh; overflow: hidden; }
+body.desktop-app #app { height: calc(100vh - 40px); overflow: auto; overscroll-behavior: contain; }
+body.desktop-app .app-layout, body.desktop-app .main-content { min-height: 100%; }
+.desktop-titlebar {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 13px;
+  color: #333342;
+  background: #f6f7fa;
+  border-bottom: 1px solid rgba(49, 52, 74, .08);
+  font: 600 12px/1 "Segoe UI", sans-serif;
+  -webkit-app-region: drag;
+  user-select: none;
+}
+.desktop-titlebar__brand { display: inline-flex; align-items: center; gap: 8px; }
+.desktop-titlebar__mark {
+  display: grid;
+  width: 21px;
+  height: 21px;
+  place-items: center;
+  border-radius: 7px;
+  color: #fff;
+  background: var(--color-primary);
+  font-size: 11px;
+  font-weight: 700;
+}
+.desktop-titlebar__controls { display: flex; height: 100%; -webkit-app-region: no-drag; }
+.window-control {
+  display: grid;
+  width: 46px;
+  height: 100%;
+  place-items: center;
+  border: 0;
+  color: #444451;
+  background: transparent;
+}
+.window-control:hover { background: rgba(31, 32, 46, .08); }
+.window-control--close:hover { color: #fff; background: #d83b3e; }
+.window-control svg { width: 14px; height: 14px; }
+html[data-theme="dark"] .desktop-titlebar { color: #f1f1f6; background: #232530; border-bottom-color: rgba(191, 192, 212, .12); }
+html[data-theme="dark"] .window-control { color: #e6e6ef; }
+html[data-theme="dark"] .window-control:hover { background: rgba(255, 255, 255, .1); }
+html[data-theme="dark"] .window-control--close:hover { background: #d83b3e; }
+.storage-error { max-width: 700px; margin: 10vh auto; padding: 2rem; }
+.storage-error h1 { margin-bottom: .8rem; font-size: 1.4rem; }
+.storage-error p { color: var(--text-muted); }
+@media print {
+  .desktop-titlebar, .sidebar, .sidebar-backdrop, .top-header, .toolbar-actions,
+  .row-actions, [data-action], .toast-region { display: none !important; }
+  body, body.desktop-app, body.desktop-app #app { min-width: 0; height: auto; overflow: visible; }
+  .app-layout, .main-content { min-height: 0 !important; }
+  .dashboard-grid { width: 100%; padding: 0; }
+  .card, .metric-card { break-inside: avoid; box-shadow: none; }
+}
+body.sidebar-open, body.modal-open { overflow: hidden; }
+button, input, select { font: inherit; }
+button { color: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+svg { display: block; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { line-height: 1.2; letter-spacing: -.025em; }
+:focus-visible { outline: 3px solid rgba(117, 103, 232, .35); outline-offset: 2px; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+input::placeholder { color: var(--text-muted); opacity: .72; }
+::selection { color: #fff; background: var(--color-primary); }

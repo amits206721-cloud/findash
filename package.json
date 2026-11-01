@@ -1,0 +1,58 @@
+{
+  "name": "fintech-ui-pro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "desktop": "npm run build && npm run electron",
+    "package:win": "npm run build && electron-builder --win nsis portable",
+    "package:win:installer": "npm run build && electron-builder --win nsis",
+    "package:win:portable": "npm run build && electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.findash.desktop",
+    "productName": "FinDash",
+    "directories": {
+      "output": "release-rebuild"
+    },
+    "files": [
+      "desktop-dist/**/*",
+      "assets/**/*",
+      "electron/**/*",
+      "src/js/data-validation.js",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "assets/findash.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "FinDash"
+    },
+    "portable": {
+      "artifactName": "FinDash-Portable-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.0",
+    "vite": "^8.3.5"
+  },
+  "allowScripts": {
+    "electron@45.2.1": true,
+    "electron-winstaller@5.4.0": true
+  }
+}

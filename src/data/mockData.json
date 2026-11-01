@@ -1,0 +1,72 @@
+{
+  "user": {
+    "name": "Amit Singh Mahar",
+    "initials": "AM",
+    "currency": "USD"
+  },
+  "metrics": {
+    "totalBalance": 14250.75,
+    "balanceTrend": "+2.4%",
+    "monthlyIncome": 8450.00,
+    "monthlyExpenses": 3210.50
+  },
+  "cashFlow": [
+    { "day": "01", "income": 4000, "expense": 1200 },
+    { "day": "05", "income": 0, "expense": 350 },
+    { "day": "10", "income": 0, "expense": 800 },
+    { "day": "15", "income": 4450, "expense": 400 },
+    { "day": "20", "income": 0, "expense": 150 },
+    { "day": "25", "income": 0, "expense": 210 },
+    { "day": "30", "income": 0, "expense": 100 }
+  ],
+  "transactions": [
+    {
+      "id": "tx_001",
+      "merchant": "Apple Store",
+      "date": "2026-11-01T10:30:00Z",
+      "status": "Completed",
+      "amount": -1299.00,
+      "type": "debit"
+    },
+    {
+      "id": "tx_002",
+      "merchant": "TechNova Corp Salary",
+      "date": "2026-10-28T09:00:00Z",
+      "status": "Completed",
+      "amount": 4450.00,
+      "type": "credit"
+    },
+    {
+      "id": "tx_003",
+      "merchant": "Amazon Web Services",
+      "date": "2026-10-25T14:15:00Z",
+      "status": "Pending",
+      "amount": -45.50,
+      "type": "debit"
+    },
+    {
+      "id": "tx_004",
+      "merchant": "Uber Rides",
+      "date": "2026-10-24T18:45:00Z",
+      "status": "Completed",
+      "amount": -24.90,
+      "type": "debit"
+    },
+    {
+      "id": "tx_005",
+      "merchant": "Starbucks",
+      "date": "2026-10-24T08:10:00Z",
+      "status": "Completed",
+      "amount": -6.50,
+      "type": "debit"
+    },
+    {
+      "id": "tx_006",
+      "merchant": "Netflix Subscription",
+      "date": "2026-10-21T00:00:00Z",
+      "status": "Failed",
+      "amount": -15.99,
+      "type": "debit"
+    }
+  ]
+}
